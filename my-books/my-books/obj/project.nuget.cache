@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/uOgpdVeNpcfYGlPcVEs2jmLFHwnp6Oh1lNpz+uTtqlTIlFAvIphANrIEWava8ke+KR1lHcs/Gpb7eLUDHaOag==",
+  "dgSpecHash": "RxXwG8qJ4JMiSnT5ZT3wSKZUYmXjhKR2gdDR8+/kw3c3zrn9mS9N2BFN08sSslAUwLh35HEWUKZq2U3NVV1TIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Сергій\\source\\repos\\my-books\\my-books\\my-books.csproj",
+  "projectFilePath": "C:\\Users\\Сергій\\source\\repos\\ASP.NET-Core-Books\\my-books\\my-books\\my-books.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Сергій\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Сергій\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

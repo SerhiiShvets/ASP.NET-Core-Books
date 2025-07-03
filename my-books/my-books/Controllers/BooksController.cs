@@ -34,7 +34,7 @@ namespace my_books.Controllers
         }
 
         [HttpGet("book/{id}")]
-        public IActionResult GetBookById(int id)
+        public IActionResult GetBook(int id)
         {
             var book = _booksService.GetBook(id);
             return Ok(book);

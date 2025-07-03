@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Сергій\\source\\repos\\my-books\\my-books\\my-books.csproj": {}
+    "C:\\Users\\Сергій\\source\\repos\\ASP.NET-Core-Books\\my-books\\my-books\\my-books.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Сергій\\source\\repos\\my-books\\my-books\\my-books.csproj": {
+    "C:\\Users\\Сергій\\source\\repos\\ASP.NET-Core-Books\\my-books\\my-books\\my-books.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Сергій\\source\\repos\\my-books\\my-books\\my-books.csproj",
+        "projectUniqueName": "C:\\Users\\Сергій\\source\\repos\\ASP.NET-Core-Books\\my-books\\my-books\\my-books.csproj",
         "projectName": "my-books",
-        "projectPath": "C:\\Users\\Сергій\\source\\repos\\my-books\\my-books\\my-books.csproj",
+        "projectPath": "C:\\Users\\Сергій\\source\\repos\\ASP.NET-Core-Books\\my-books\\my-books\\my-books.csproj",
         "packagesPath": "C:\\Users\\Сергій\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Сергій\\source\\repos\\my-books\\my-books\\obj\\",
+        "outputPath": "C:\\Users\\Сергій\\source\\repos\\ASP.NET-Core-Books\\my-books\\my-books\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
