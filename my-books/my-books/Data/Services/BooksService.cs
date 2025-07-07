@@ -45,7 +45,18 @@ namespace my_books.Data.Services
         }
 
         public List<Book> GetBooks() => _context.Books.ToList();
-        public Book GetBook(int bookId) => _context.Books.FirstOrDefault(b => b.Id == bookId);
+        public Book GetBook(int id)
+        {
+            var _book = _context.Books.FirstOrDefault(b => b.Id == id);
+            if (_book != null)
+            {
+                return _book;
+            }
+            else
+            {
+                throw new Exception($"The book with id {id} does not exist.");
+            }
+        }
         public BookWithAuthorsVM GetBookWithAuthors(int bookId)
         {
             var _bookWithAuthors = _context.Books.Where(b => b.Id == bookId).Select(b => new BookWithAuthorsVM()
@@ -85,14 +96,18 @@ namespace my_books.Data.Services
             return bookToUpdate;
         }
 
-        public void DeleteBook(int bookId)
+        public void DeleteBook(int id)
         {
-            var book = _context.Books.FirstOrDefault(b => b.Id == bookId);
+            var book = _context.Books.FirstOrDefault(b => b.Id == id);
 
             if (book != null)
             {
                 _context.Books.Remove(book);
                 _context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception($"The bookth id {id} does not exist.");
             }
         }
     }

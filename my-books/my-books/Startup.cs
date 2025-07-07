@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using my_books.Data;
 using my_books.Data.Services;
+using my_books.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,10 +35,10 @@ namespace my_books
 
             services.AddControllers();
 
-            //Configure DBContext with SQL
+            // Configure DBContext with SQL
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
 
-            //Configure the Services
+            // Configure the Services
             services.AddTransient<BooksService>();
             services.AddTransient<AuthorsService>();
             services.AddTransient<PublishersService>();
@@ -63,6 +64,10 @@ namespace my_books
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Exception handling
+            app.ConfigureBuildInExceptionHandler();
+            // app.ConfigureCustomExceptionHandler();
 
             app.UseEndpoints(endpoints =>
             {

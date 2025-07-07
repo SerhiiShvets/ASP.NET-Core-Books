@@ -36,8 +36,16 @@ namespace my_books.Controllers
         [HttpGet("book/{id}")]
         public IActionResult GetBook(int id)
         {
-            var book = _booksService.GetBook(id);
-            return Ok(book);
+            try
+            {
+                var book = _booksService.GetBook(id);
+                return Ok(book);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut("book/{id}")]
@@ -50,8 +58,16 @@ namespace my_books.Controllers
         [HttpDelete("book/{id}")]
         public IActionResult DeleteBook(int id)
         {
-            _booksService.DeleteBook(id);
-            return Ok();
+            try
+            {
+                _booksService.DeleteBook(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
