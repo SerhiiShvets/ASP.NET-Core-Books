@@ -1,11 +1,11 @@
 ﻿using my_books.Data.Models;
+using my_books.Data.Paging;
 using my_books.Data.ViewModels;
 using my_books.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace my_books.Data.Services
 {
@@ -19,9 +19,37 @@ namespace my_books.Data.Services
 
         public Publisher GetPublisher(int id) => _context.Publishers.FirstOrDefault(p => p.Id == id);
 
+        public IList<Publisher> GetPublishers(string sortBy, string search, int? pageNumber)
+        {
+            var publishers = _context.Publishers.OrderBy(p => p.Name).ToList();
+
+            if(!string.IsNullOrEmpty(search))
+            {
+                publishers = _context.Publishers.Where(p => p.Name.Contains(search, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            }
+
+            if(!string.IsNullOrEmpty(sortBy))
+            {
+                switch (sortBy)
+                {
+                    case "name_desc":
+                        publishers = publishers.OrderByDescending(p => p.Name).ToList();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            // Paging
+            int pageSize = 5;
+            publishers = PaginatedList<Publisher>.Create(publishers.AsQueryable(), pageNumber ?? 1, pageSize);
+
+            return publishers;
+        }
+
         public Publisher AddPublisher(PublisherVM publisher)
         {
-            if (StringStartsWithNumber(publisher.Name))
+            if(StringStartsWithNumber(publisher.Name))
             {
                 throw new PublisherNameException("Name starts with a number", publisher.Name);
             }
@@ -47,7 +75,7 @@ namespace my_books.Data.Services
                         BookAuthors = b.Book_Authors.Select(ba => ba.Author.FullName).ToList()
                     }).ToList()
                 }).FirstOrDefault();
-            if (_publisherData != null)
+            if(_publisherData != null)
             {
                 return _publisherData;
             }
@@ -61,7 +89,7 @@ namespace my_books.Data.Services
         {
             var _publisher = _context.Publishers.FirstOrDefault(p => p.Id == id);
 
-            if (_publisher != null)
+            if(_publisher != null)
             {
                 _context.Publishers.Remove(_publisher);
             }

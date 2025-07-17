@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using my_books.ActionResults;
 using my_books.Data.Services;
 using my_books.Data.ViewModels;
 using my_books.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_books.Controllers
 {
@@ -26,7 +22,7 @@ namespace my_books.Controllers
         {
             var _response = _publishersService.GetPublisher(id);
             var _responseObject = new CustonActionResultVM();
-            if (_response != null)
+            if(_response != null)
             {
                 _responseObject.Publisher = _response;
                 // return Ok(_response);
@@ -38,6 +34,21 @@ namespace my_books.Controllers
             }
 
             return new CustomActionResult(_responseObject);
+        }
+
+        [HttpGet("publishers")]
+        public IActionResult GetPublishers(string sortBy, string search, int pageNumber)
+        {
+            try
+            {
+                var _response = _publishersService.GetPublishers(sortBy, search, pageNumber);
+                return Ok(_response);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest("Sorry, we couldn`t load the publishers.");
+            }
         }
 
         [HttpPost("publisher")]

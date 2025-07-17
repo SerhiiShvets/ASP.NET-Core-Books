@@ -3,7 +3,6 @@ using my_books.Data.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_books.Data.Services
 {
@@ -48,7 +47,7 @@ namespace my_books.Data.Services
         public Book GetBook(int id)
         {
             var _book = _context.Books.FirstOrDefault(b => b.Id == id);
-            if (_book != null)
+            if(_book != null)
             {
                 return _book;
             }
@@ -79,7 +78,7 @@ namespace my_books.Data.Services
         {
             var bookToUpdate = _context.Books.FirstOrDefault(b => b.Id == bookId);
 
-            if (bookToUpdate != null)
+            if(bookToUpdate != null)
             {
                 bookToUpdate.Title = book.Title;
                 bookToUpdate.Description = book.Description;
@@ -100,7 +99,7 @@ namespace my_books.Data.Services
         {
             var book = _context.Books.FirstOrDefault(b => b.Id == id);
 
-            if (book != null)
+            if(book != null)
             {
                 _context.Books.Remove(book);
                 _context.SaveChanges();
