@@ -1,0 +1,7 @@
+08/02/2025 13:37:45 -04:00 [Information] - Message: This is just log in GetPublishers()
+08/02/2025 13:41:53 -04:00 [Information] - Message: This is just log in GetPublishers()
+08/02/2025 13:41:56 -04:00 [Information] - Message: This is just log in GetPublishers()
+08/02/2025 13:43:38 -04:00 [Information] - Message: This is just log in GetPublishers()
+08/02/2025 13:46:26 -04:00 [Information] - Message: This is just log in GetPublishers()
+08/02/2025 13:46:29 -04:00 [Information] - Message: This is just log in GetPublishers()
+08/02/2025 13:48:59 -04:00 [Information] - Message: This is just log in GetPublishers()
